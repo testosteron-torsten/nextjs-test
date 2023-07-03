@@ -1,0 +1,21 @@
+# Envrioment
+.env.local
+# Next.js
+.next/
+out/
+
+# Node.js
+node_modules/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build artifacts
+/.next/
+/*.log
+
+# Supabase-specific files
+/.supabase/
