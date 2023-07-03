@@ -4,7 +4,7 @@ In the case of Supabase, we configured CORS to allow requests from our Next.js a
 
 2. Describe how you configured a CSP for your project.
 
-We used the next-secure-headers package. This package allows us to set various security-related headers, including CSP. 
+We used the next-secure-headers package. This package allows us to set various security-related headers, including CSP. Config is in our secure-headers.config.js. 
 
 3. Describe if/how your Database-Layer is vulnerable to SQL Injection and what you need to avoid to be safe.
 

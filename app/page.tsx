@@ -5,8 +5,7 @@ import Link from 'next/link'
 import LogoutButton from './logout-button'
 import ShowOne from './showone'
 import ShowAll from './showall'
-import { signIn, signOut, useSession } from 'next-auth/client';
-
+import { useRouter } from 'next/router'
 
 const resources = [
   {
