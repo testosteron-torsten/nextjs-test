@@ -1,8 +1,10 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { group } from "console";
 import { cookies } from "next/headers";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
+import {getServerSession} from "next-auth/next"
 
 export default async function ShowAll() {
+  const session = await getServerSession(authOptions)
     const supabase = createServerComponentClient({ cookies });
 
     const { data: groupData, error: groupError } = await supabase
