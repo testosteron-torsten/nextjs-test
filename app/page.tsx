@@ -5,7 +5,8 @@ import Link from 'next/link'
 import LogoutButton from './logout-button'
 import ShowOne from './showone'
 import ShowAll from './showall'
-import { useRouter } from 'next/router'
+import { signIn, signOut, useSession } from 'next-auth/client';
+
 
 const resources = [
   {
@@ -39,6 +40,8 @@ const examples = [
   { type: 'Middleware', src: 'app/middleware.ts' },
   { type: 'Protected Routes', src: 'app/_examples/protected/page.tsx' },
 ]
+
+
 
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies })
