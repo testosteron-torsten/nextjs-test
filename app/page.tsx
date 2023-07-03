@@ -6,6 +6,9 @@ import LogoutButton from './logout-button'
 import ShowOne from './showone'
 import ShowAll from './showall'
 import { useRouter } from 'next/router'
+import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
+import {getServerSession} from "next-auth/next"
+import SignInStatus from "./login"
 
 
 const resources = [
@@ -44,16 +47,16 @@ const examples = [
 
 
 export default async function Index() {
-
+  const session = await getServerSession(authOptions)
   const supabase = createServerComponentClient({ cookies })
 
   const {
     data: { user },
   } = await supabase.auth.getUser()
-
+  
   return (
-    <>
-    
+    <> 
+    <SignInStatus />
     <h1 className='head'>SHOW ALL:</h1>
     <ShowAll />
     <br></br>

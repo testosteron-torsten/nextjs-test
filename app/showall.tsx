@@ -37,14 +37,6 @@ export default async function ShowAll() {
       console.error('Error fetching usernames:', userNamesError);
       return null;
     }
-    
-    // const formattedData = {
-    //     groupId: transactions.groupId,
-    //     titel: transactions.title,
-    //     createdAt: transactions.createdAt,
-
-    //   };
-
 
     return (
         <div className="div1">
