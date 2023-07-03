@@ -6,7 +6,7 @@ import LogoutButton from './logout-button'
 import ShowOne from './showone'
 import ShowAll from './showall'
 import { useRouter } from 'next/router'
-import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
+import {authOptions} from "@/app/api/auth/[...nextauth]/authOptions.js"
 import {getServerSession} from "next-auth/next"
 import SignInStatus from "./login"
 

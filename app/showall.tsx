@@ -1,6 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
+import {authOptions} from "@/app/api/auth/[...nextauth]/authOptions.js"
 import {getServerSession} from "next-auth/next"
 
 export default async function ShowAll() {

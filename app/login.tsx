@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route.js";
+import {authOptions} from "@/app/api/auth/[...nextauth]/authOptions.js"
 import { getServerSession } from "next-auth/next";
 import Link from "next/link";
 
