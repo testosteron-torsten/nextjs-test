@@ -18,7 +18,7 @@ export default async function ShowAll() {
 
     const { data: transactions, error: transactionsError } = await supabase
       .from('transactions')
-      .select('title, createdAt, total, payedBy')
+      .select('transactionId, title, createdAt, total, payedBy')
       .eq('groupId', 9)
       
     if (transactionsError) {
@@ -47,7 +47,7 @@ export default async function ShowAll() {
     
             return (
               <p className="text">
-                {transaction.title} : {transaction.total} € - Payed by: {payedByUserName}
+                <a href={'show/' + transaction.transactionId}> {transaction.title}</a> : {transaction.total} € - Payed by: {payedByUserName}
               </p>
             );
           })}

@@ -3,8 +3,6 @@ import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 import LogoutButton from './logout-button'
-import ShowOne from './showone'
-import ShowAll from './showall'
 import { useRouter } from 'next/router'
 import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
 import {getServerSession} from "next-auth/next"
@@ -57,11 +55,7 @@ export default async function Index() {
   return (
     <> 
     <SignInStatus />
-    <h1 className='head'>SHOW ALL:</h1>
-    <ShowAll />
-    <br></br>
-    <h1 className='head'>SHOW ONE:</h1>
-    <ShowOne />
+    
     </>
   )
 }

@@ -1,13 +1,13 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-export default async function ShowOne() {
+export default async function ShowOne({ params }) {
     const supabase = createServerComponentClient({ cookies });
 
     const { data: transactions, error: transactionsError } = await supabase
       .from('transactions')
       .select('groupId, title, createdAt')
-      .eq('transactionId', 37)
+      .eq('transactionId', params.id)
       .single();
   
     if (transactionsError) {
@@ -33,7 +33,7 @@ export default async function ShowOne() {
       amount,
       users (username)
     `)
-    .eq('transactionId', 37);
+    .eq('transactionId', params.id);
   
     if (userTransactionsError) {
       console.error('Error fetching user transactions:', userTransactionsError);
