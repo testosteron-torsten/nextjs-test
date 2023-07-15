@@ -1,6 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import {getServerSession} from "next-auth/next"
+import Link from "next/link";
 
 export default async function ShowAll() {
     const supabase = createServerComponentClient({ cookies });
@@ -38,9 +39,27 @@ export default async function ShowAll() {
       return null;
     }
 
+    const { data: userInGroup, error: userInGroupError} = await supabase
+    .from('userInGroup')
+    .select('userId')
+    .eq('groupId', 9)
+
+    if (userInGroupError) {
+      console.error('Error fetching userInGroup:', userInGroupError);
+      return null;
+    }
+
     return (
         <div className="div1">
           <h1 className="group">Group: {groupData.groupname}</h1><br></br>
+          <h2>User in Group:</h2>
+          <ul>
+          {userInGroup.map((user) => {
+            return <li key={user.userId}>{user.userId}</li>
+          })}
+          <Link href='show/add'>Add User</Link>
+          </ul>
+          <h2>transactions:</h2>
           {transactions.map((transaction) => {
             const payedByUser = userNames.find((user) => user.userId === transaction.payedBy);
             const payedByUserName = payedByUser ? payedByUser.username : '';
