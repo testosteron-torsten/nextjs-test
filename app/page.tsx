@@ -4,11 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LogoutButton from './logout-button'
 import { useRouter } from 'next/router'
-import {authOptions} from "@/app/api/auth/[...nextauth]/route.js"
 import {getServerSession} from "next-auth/next"
-import SignInStatus from "./login"
-
-
+import ShowAll from './show/page'
 const resources = [
   {
     title: 'Cookie-based Auth and the Next.js App Router',
@@ -45,7 +42,6 @@ const examples = [
 
 
 export default async function Index() {
-  const session = await getServerSession(authOptions)
   const supabase = createServerComponentClient({ cookies })
 
   const {
@@ -54,7 +50,7 @@ export default async function Index() {
   
   return (
     <> 
-    <SignInStatus />
+    <ShowAll />
     
     </>
   )
